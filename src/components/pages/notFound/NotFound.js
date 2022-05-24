@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { certifContext } from "../../context/Context";
-
 import "./notFound.scss";
 
 const NotFound = () => {

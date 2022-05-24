@@ -1,10 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
-// import Input from "../input/Input";
-// import "./collectInformation.scss";
-// import Response from "../pages/response/Response";
-// import { Link } from "react-router-dom";
-// import Response from "../pages/response/Response";
 import Routing from "../routing/Routing";
 
 export const certifContext = createContext();
@@ -20,7 +15,7 @@ const Context = () => {
 
   useEffect(() => {
     if (email !== "" && phone !== "") {
-      alert("هوی");
+      alert("تنها یکی از دو فیلد شماره تلفن و ایمیل پر شود");
       setEmail("");
       setPhone("");
     }

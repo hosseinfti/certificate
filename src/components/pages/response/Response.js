@@ -1,11 +1,7 @@
 import { useContext } from "react";
-
-// import CollectInformation from "../collectInformation/CollectInformation";
 import { Link } from "react-router-dom";
-// import { context } from "../../collectInformation/CollectInformation";
 import { certifContext } from "../../context/Context";
 import NotFound from "../notFound/NotFound";
-
 import "./response.scss";
 
 
