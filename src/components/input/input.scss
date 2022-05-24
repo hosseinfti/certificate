@@ -17,23 +17,24 @@
 }
 .pairInputs {
   margin-block: 20px;
+  text-align: center;
 }
 @media only screen and(max-width: 355px) {
-    .inputContainer {
+  .inputContainer {
+    margin: 0;
+  }
+}
+@media only screen and(max-width: 500px) {
+  .inputContainer {
+    input {
+      width: 80%;
+      max-width: 80%;
+    }
+    div {
       margin: 0;
     }
-  }
-  @media only screen and(max-width: 500px) {
-    .inputContainer {
-      input {
-        width: 80%;
-        max-width: 80%;
-      }
-      div {
-          margin: 0;
-      }
-      .note {
-        margin-inline: 10%;
-      }
+    .note {
+      margin-inline: 10%;
     }
   }
+}

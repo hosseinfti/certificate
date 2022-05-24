@@ -14,7 +14,7 @@ const Context = () => {
   const [response, setResponse] = useState("");
   const [status, setStatus] = useState("");
   const [loading, setLodaing] = useState(true);
-  const [myroute, setMyRoute] = useState("/response");
+  const [myroute, setMyRoute] = useState("/");
 
   useEffect(() => {
     if (email !== "" && phone !== "") {
@@ -91,7 +91,7 @@ const Context = () => {
         setLodaing(false);
         setMyRoute("/response");
       }
-    } else alert("لطفا فیلد ها را پر کنید");
+    } else alert("لطفا از هر ردیف یک فیلد را پر کنید");
   };
 
   // const handleDownloadLink = (url) => {
