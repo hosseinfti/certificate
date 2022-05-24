@@ -42,14 +42,16 @@ const Response = () => {
     );
   return (
     <div className="response">
-      <div>
-        <Link to="/">
-          <button onClick={() => context.cleanState()} className="return">
-            بازگشت
-          </button>
-        </Link>
-      </div>
       {response}
+      <div>
+      <Link
+        className="returnHomeLink"
+        onClick={() => context.cleanState()}
+        to="/"
+      >
+        <div className="returnHome">بازگشت به صفحه‌ی اصلی</div>
+      </Link>
+      </div>
     </div>
   );
 };
