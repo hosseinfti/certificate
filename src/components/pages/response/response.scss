@@ -1,0 +1,22 @@
+.response {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.response div:nth-child(2) {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.return {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+.click {
+  background-color: red;
+  cursor: pointer;
+}

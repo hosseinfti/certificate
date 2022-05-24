@@ -1,8 +1,7 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
-  margin-block: 20px;
-  margin-inline: 20px;
+  margin: 20px;
 
   input {
     max-width: 150px;
@@ -10,11 +9,28 @@
     margin-inline: 5px;
     background-color: #fff;
     border: none;
+    border-radius: 5px;
     outline: none;
     padding: 10px;
     box-shadow: inset 0 1px 4px -2px #414141;
   }
 }
 .pairInputs {
-    margin-block: 20px;
+  margin-block: 20px;
 }
+@media only screen and(max-width: 355px) {
+    .inputContainer {
+      margin: 0;
+    }
+  }
+  @media only screen and(max-width: 500px) {
+    .inputContainer {
+      input {
+        width: 80%;
+        max-width: 80%;
+      }
+      div {
+          margin: 0;
+      }
+    }
+  }

@@ -1,8 +1,28 @@
+@font-face {
+  font-family: "RegEstedad";
+  src: url(./assets/font/Estedad/ttf/Estedad-Regular.ttf);
+}
+@font-face {
+  font-family: "BEstedad";
+  src: url(./assets/font/Estedad/ttf/Estedad-Bold.ttf);
+}
 .App {
+  background-color: #e1e1e1;
+  font-family: "regEstedad";
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: 100vh;
   width: 100vw;
+}
+h1 {
+  box-shadow: 1px 1px 4px 0px;
+  padding-inline: 20px;
+  border-radius: 9px;
+}
+@media only screen and(max-width: 355px) {
+  h1 {
+    font-size: 25px;
+  }
 }

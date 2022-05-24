@@ -1,10 +1,12 @@
 import "./App.scss";
-import CollectInformation from "./components/collectInformation/CollectInformation";
+import Context from "./components/context/Context";
+// import CollectInformation from "./components/collectInformation/CollectInformation";
+// import Routing from "./components/routing/Routing";
 
 function App() {
   return (
     <div className="App">
-      <CollectInformation />
+      <Context />
     </div>
   );
 }
