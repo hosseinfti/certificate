@@ -14,9 +14,15 @@
 .return {
   cursor: pointer;
   position: absolute;
-  left: 0;
+  top: 5px;
+  left: 5px;
+  padding: 10px;
+  background-color: #3b3b9c;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
 }
 .click {
-  background-color: red;
+  border-bottom: 1px dashed #3b3b9c;
   cursor: pointer;
 }

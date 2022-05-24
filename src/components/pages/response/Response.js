@@ -18,7 +18,7 @@ const Response = () => {
         <div>
           جهت بارگذاری مجدد
           <span
-            onClick={() =>
+            onClick={
               context
                 .downloadBlob
                 // `http://${context.response}`,
@@ -28,7 +28,7 @@ const Response = () => {
             }
             className="click"
           >
-            کلیک{" "}
+            {" "} کلیک{" "}
           </span>
           کنید
         </div>
