@@ -12,14 +12,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   height: 100vh;
   width: 100vw;
 }
 h1 {
-  box-shadow: 1px 1px 4px 0px;
-  padding-inline: 20px;
-  border-radius: 9px;
+  text-align: center;
+  width: 86%;
+  color: #fff;
+  margin-bottom: 13%;
+  color: #3b3b9c;
+  border-bottom: 1px dashed;
 }
 @media only screen and(max-width: 355px) {
   h1 {

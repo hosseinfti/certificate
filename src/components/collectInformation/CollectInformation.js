@@ -12,7 +12,7 @@ const CollectInformation = () => {
       <div className="form">
         <h1>CWS Certificate</h1>
         <div className="inputContainer">
-          <div className="note">شماره یا ایمیل پر شود</div>
+          <div className="">شماره یا ایمیل پر شود</div>
           <div className="pairInputs">
             <Input
               type="number"
@@ -36,14 +36,14 @@ const CollectInformation = () => {
           <div className="pairInputs">
             <Input
               type="text"
-              placeholder="اسم"
+              placeholder="نام"
               state={context.name}
               setState={context.setState}
               id="name"
             />
             <Input
               type="text"
-              placeholder="فامیلی"
+              placeholder="نام‌خانوادگی"
               state={context.family}
               setState={context.setState}
               id="family"
@@ -55,7 +55,7 @@ const CollectInformation = () => {
             <div>دریافت مدرک تنها یکبار قابل انجام است</div>
             <div>در وارد کردن اطلاعات دقت کنید</div>
           </div>
-          <Link to="/response">
+          <Link to={context.myroute}>
             <button className="submitBTN" onClick={() => context.handleClick()}>
               ارسال مدرک
             </button>

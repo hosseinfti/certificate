@@ -4,9 +4,7 @@ import { certifContext } from "../../context/Context";
 import NotFound from "../notFound/NotFound";
 import "./response.scss";
 
-
 const Response = () => {
-  
   const context = useContext(certifContext);
   console.log(context);
 
@@ -20,17 +18,24 @@ const Response = () => {
         <div>
           جهت بارگذاری مجدد
           <span
-            onClick={() => context.openInNewTab(`http://${context.response}`)}
+            onClick={() =>
+              context
+                .downloadBlob
+                // `http://${context.response}`,
+                // `${(context.name || context.family)}`,
+                // "jpeg"
+                ()
+            }
             className="click"
           >
-            کلیک
+            کلیک{" "}
           </span>
           کنید
         </div>
       </div>
     ) : String(context.status) === "200" ? (
       <div>
-        برای دانلود <a href={context.response}>کلیک</a> کنید
+        برای دانلود <a href={`http://${context.response}`}>کلیک</a> کنید
       </div>
     ) : (
       <NotFound />
@@ -39,7 +44,9 @@ const Response = () => {
     <div className="response">
       <div>
         <Link to="/">
-          <button onClick={() => context.cleanState() } className="return"> بازگشت</button>
+          <button onClick={() => context.cleanState()} className="return">
+            بازگشت
+          </button>
         </Link>
       </div>
       {response}

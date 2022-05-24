@@ -10,6 +10,7 @@
   font-size: 12px;
   opacity: 0.6;
   direction: rtl;
+  margin-inline: 10%;
 }
 .form {
   max-width: 400px;
@@ -22,19 +23,18 @@
   background-color: #fff;
 }
 .btnContainer {
-  width: 85%;
+  width: 88%;
   margin: 20px;
 }
 .submitBTN {
   height: 40px;
-  width: 60%;
+  width: 100%;
   cursor: pointer;
-  color: #1b1734;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
-  box-shadow: 0px 0px 4px 0px #000;
-  background-color: transparent;
-  color: #1b1734;
+  // box-shadow: 0px 0px 4px 0px #000;
+  background-color: #3b3b9c;
   transition-property: background-color;
   transition-duration: 0.5s;
   transition-timing-function: linear;
