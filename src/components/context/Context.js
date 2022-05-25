@@ -92,6 +92,13 @@ const Context = () => {
         setMyRoute("/response");
       }
     } else alert("لطفا از هر ردیف یک فیلد را پر کنید");
+
+    setTimeout(() => {
+      if (!response) {
+        setLodaing(false);
+        setMyRoute("/notFound");
+      }
+    }, 3000);
   };
 
   // const handleDownloadLink = (url) => {
