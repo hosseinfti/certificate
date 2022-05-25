@@ -104,10 +104,10 @@ const Context = () => {
 
   const downloadBlob = (res, filename, ext) => {
     // Create an object URL for the blob object
-    console.info(GetMineType("jpeg"));
-    const url = URL.createObjectURL(
-      new Blob([response], { type: `${GetMineType("jpeg")}` })
-    );
+    // console.info(GetMineType("jpeg"));
+    // const url = URL.createObjectURL(
+    //   new Blob([response], { type: `${GetMineType("jpeg")}` })
+    // );
 
     // Create a new anchor element
     const a = document.createElement("a");
@@ -115,7 +115,7 @@ const Context = () => {
     // Set the href and download attributes for the anchor element
     // You can optionally set other attributes like `title`, etc
     // Especially, if the anchor element will be attached to the DOM
-    a.href = url;
+    a.href = response;
     a.download = name || family || "download";
 
     // Click handler that releases the object URL after the element has been clicked
@@ -123,40 +123,40 @@ const Context = () => {
     a.click();
   };
 
-  const GetMineType = (extension) => {
-    switch (String(extension).toLowerCase()) {
-      case "csv":
-        return "text/csv";
-      case "cur":
-        return "application/octet-stream";
-      case "cxx":
-        return "text/plain";
-      case "dat":
-        return "application/octet-stream";
-      case "datasource":
-        return "application/xml";
-      case "dbproj":
-        return "text/plain";
-      case "dcr":
-        return "application/x-director";
-      case "docx":
-        return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-      case "dot":
-        return "application/msword";
-      case "jpb":
-        return "application/octet-stream";
-      case "jpe":
-        return "image/jpeg";
-      case "jpeg":
-        return "image/jpeg";
-      case "jpg":
-        return "image/jpeg";
-      case "png":
-        return "image/png";
-      default:
-        return "image/jpeg";
-    }
-  };
+  // const GetMineType = (extension) => {
+  //   switch (String(extension).toLowerCase()) {
+  //     case "csv":
+  //       return "text/csv";
+  //     case "cur":
+  //       return "application/octet-stream";
+  //     case "cxx":
+  //       return "text/plain";
+  //     case "dat":
+  //       return "application/octet-stream";
+  //     case "datasource":
+  //       return "application/xml";
+  //     case "dbproj":
+  //       return "text/plain";
+  //     case "dcr":
+  //       return "application/x-director";
+  //     case "docx":
+  //       return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+  //     case "dot":
+  //       return "application/msword";
+  //     case "jpb":
+  //       return "application/octet-stream";
+  //     case "jpe":
+  //       return "image/jpeg";
+  //     case "jpeg":
+  //       return "image/jpeg";
+  //     case "jpg":
+  //       return "image/jpeg";
+  //     case "png":
+  //       return "image/png";
+  //     default:
+  //       return "image/jpeg";
+  //   }
+  // };
 
   const setState = (e) => {
     switch (e.target.id) {
