@@ -15,6 +15,7 @@ const Context = () => {
   const [status, setStatus] = useState("");
   const [loading, setLodaing] = useState(true);
   const [myroute, setMyRoute] = useState("/");
+  const [resText, setResText] = useState("");
 
   useEffect(() => {
     if (email !== "" && phone !== "") {
@@ -26,6 +27,26 @@ const Context = () => {
 
   useEffect(() => {
     setLodaing(false);
+
+    setTimeout(() => {
+      switch (String(status)) {
+        case "200":
+          setMyRoute("/response");
+          break;
+        case "201":
+          setMyRoute("/response");
+          break;
+        case "202":
+          setMyRoute("/notFound");
+          break;
+        default:
+          break;
+      }
+      // if (response == "Not Found") {
+      //   setLodaing(false);
+      //   setMyRoute("/notFound");
+      // }
+    }, 3000);
   }, [status]);
 
   const cleanState = () => {
@@ -35,6 +56,7 @@ const Context = () => {
     setPhone("");
     setResponse("");
     setStatus("");
+    setMyRoute("/");
   };
 
   const handleClick = () => {
@@ -55,50 +77,44 @@ const Context = () => {
           `${String(name).trim()} ${String(family).trim()}`
         );
       }
+    } else if ((!name && !family) || (!phone && !email)) {
+      alert("لطفا از هر ردیف یک فیلد را پر کنید");
+    }
 
-      axios({
-        method: "post",
-        url: "http://188.121.111.158:8888/hook",
-        data: bodyFormData,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-        .then((res) => {
-          //handle success
-          switch (String(res.status)) {
-            case "200":
-              setResponse(res.data);
-              setStatus(res.status);
-              break;
-            case "201":
-              setResponse(res.data);
-              setStatus(res.status);
-              break;
-            case "202":
-              setResponse(res.data);
-              setStatus(res.status);
-              break;
-            default:
-              break;
-          }
-        })
-        .catch((res) => {
-          //handle error
-          setStatus(res.status);
-        });
-      if (status) {
-        setLodaing(false);
+    axios({
+      method: "post",
+      url: "http://188.121.111.158:8888/hook",
+      data: bodyFormData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+      .then((res) => {
+        //handle success
+        setResponse(res.data);
+        setStatus(res.status);
         setMyRoute("/response");
-      }
-    } else alert("لطفا از هر ردیف یک فیلد را پر کنید");
-
-    setTimeout(() => {
-      if (!response) {
-        setLodaing(false);
+        // switch (String(res.status)) {
+        //   case "200":
+        //     setResponse(res.data);
+        //     setStatus(res.status);
+        //     break;
+        //   case "201":
+        //     setResponse(res.data);
+        //     setStatus(res.status);
+        //     break;
+        //   case "202":
+        //     setResponse(res.data);
+        //     setStatus(res.status);
+        //     break;
+        //   default:
+        //     break;
+        // }
+      })
+      .catch((res) => {
+        //handle error
         setMyRoute("/notFound");
-      }
-    }, 3000);
+      });
   };
 
   // const handleDownloadLink = (url) => {
@@ -110,11 +126,30 @@ const Context = () => {
   // };
 
   const downloadBlob = (res, filename, ext) => {
-    // Create an object URL for the blob object
-    // console.info(GetMineType("jpeg"));
-    // const url = URL.createObjectURL(
-    //   new Blob([response], { type: `${GetMineType("jpeg")}` })
+    // const url = window.URL.createObjectURL(
+    //   new Blob([response]),
     // );
+    // const link = document.createElement('a');
+    // link.href = url;
+    // link.setAttribute(
+    //   'download',
+    //   `${name}.jpeg`,
+    // );
+
+    // // Append to html link element page
+    // document.body.appendChild(link);
+
+    // // Start download
+    // link.click();
+
+    // // Clean up and remove the link
+    // link.parentNode.removeChild(link);
+
+    // Create an object URL for the blob object
+    console.info(GetMineType("jpeg"));
+    const url = URL.createObjectURL(
+      new Blob([response], { type: `${GetMineType("jpeg")}` })
+    );
 
     // Create a new anchor element
     const a = document.createElement("a");
@@ -122,7 +157,7 @@ const Context = () => {
     // Set the href and download attributes for the anchor element
     // You can optionally set other attributes like `title`, etc
     // Especially, if the anchor element will be attached to the DOM
-    a.href = response;
+    a.href = url;
     a.download = name || family || "download";
 
     // Click handler that releases the object URL after the element has been clicked
@@ -130,40 +165,40 @@ const Context = () => {
     a.click();
   };
 
-  // const GetMineType = (extension) => {
-  //   switch (String(extension).toLowerCase()) {
-  //     case "csv":
-  //       return "text/csv";
-  //     case "cur":
-  //       return "application/octet-stream";
-  //     case "cxx":
-  //       return "text/plain";
-  //     case "dat":
-  //       return "application/octet-stream";
-  //     case "datasource":
-  //       return "application/xml";
-  //     case "dbproj":
-  //       return "text/plain";
-  //     case "dcr":
-  //       return "application/x-director";
-  //     case "docx":
-  //       return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-  //     case "dot":
-  //       return "application/msword";
-  //     case "jpb":
-  //       return "application/octet-stream";
-  //     case "jpe":
-  //       return "image/jpeg";
-  //     case "jpeg":
-  //       return "image/jpeg";
-  //     case "jpg":
-  //       return "image/jpeg";
-  //     case "png":
-  //       return "image/png";
-  //     default:
-  //       return "image/jpeg";
-  //   }
-  // };
+  const GetMineType = (extension) => {
+    switch (String(extension).toLowerCase()) {
+      case "csv":
+        return "text/csv";
+      case "cur":
+        return "application/octet-stream";
+      case "cxx":
+        return "text/plain";
+      case "dat":
+        return "application/octet-stream";
+      case "datasource":
+        return "application/xml";
+      case "dbproj":
+        return "text/plain";
+      case "dcr":
+        return "application/x-director";
+      case "docx":
+        return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+      case "dot":
+        return "application/msword";
+      case "jpb":
+        return "application/octet-stream";
+      case "jpe":
+        return "image/jpeg";
+      case "jpeg":
+        return "image/jpeg";
+      case "jpg":
+        return "image/jpeg";
+      case "png":
+        return "image/png";
+      default:
+        return "image/jpeg";
+    }
+  };
 
   const setState = (e) => {
     switch (e.target.id) {

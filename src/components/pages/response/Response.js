@@ -18,17 +18,15 @@ const Response = () => {
         <div>
           جهت بارگذاری مجدد
           <span
-            onClick={
-              context
-                .downloadBlob
-                // `http://${context.response}`,
-                // `${(context.name || context.family)}`,
-                // "jpeg"
-                ()
-            }
+            onClick={context.downloadBlob(
+              `http://${context.response}`,
+              `${context.name || context.family}`,
+              "jpeg"
+            )}
             className="click"
           >
-            {" "} کلیک{" "}
+            {" "}
+            کلیک{" "}
           </span>
           کنید
         </div>
@@ -44,13 +42,13 @@ const Response = () => {
     <div className="response">
       {response}
       <div>
-      <Link
-        className="returnHomeLink"
-        onClick={() => context.cleanState()}
-        to="/"
-      >
-        <div className="returnHome">بازگشت به صفحه‌ی اصلی</div>
-      </Link>
+        <Link
+          className="returnHomeLink"
+          onClick={() => context.cleanState()}
+          to="/"
+        >
+          <div className="returnHome">بازگشت به صفحه‌ی اصلی</div>
+        </Link>
       </div>
     </div>
   );
