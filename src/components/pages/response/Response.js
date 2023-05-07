@@ -25,8 +25,7 @@ const Response = () => {
             )}
             className="click"
           >
-            {" "}
-            کلیک{" "}
+            کلیک
           </span>
           کنید
         </div>
